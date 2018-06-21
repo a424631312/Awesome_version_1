@@ -7,24 +7,33 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+var character = require('Character');
+var objType = require('ObjType');
 
-var ObjType = cc.Enum({
-    //大类别
-    character: 1 << 0,
-    item: 1 << 1,
+cc.Class({
+    extends: character,
 
-    //小类别
-    //动态对象
-    player: 1 << 2,
-    enemy: 1 << 3,
-    bullet: 1 << 4,
-    bomb: 1 << 5,
+    properties:()=> ({
 
-    //静态对象
-    // settingButton: 1 << 6,
-    // bombButton: 1 << 7,
-    // scoreLabel: 1 << 8,
-    
+        enumType:{
+            default: objType.player,
+            override: true,
+        },
+
+        object: {
+                default: null,
+                type: cc.Node,
+                override: true,
+            },
+    }),
+
+    // LIFE-CYCLE CALLBACKS:
+
+    // onLoad () {},
+
+    // start () {
+
+    // },
+
+    // update (dt) {},
 });
-
-module.exports = ObjType;
