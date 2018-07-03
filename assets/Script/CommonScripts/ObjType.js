@@ -19,7 +19,7 @@ var ObjType = cc.Enum({
     enemy: 1 << 3,
     bullet: 1 << 4,
     bomb: 1 << 5,
-
+    background: 1 << 6,
     //静态对象
     // settingButton: 1 << 6,
     // bombButton: 1 << 7,
