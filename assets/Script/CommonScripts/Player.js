@@ -29,8 +29,13 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        this.node.on('touchmove', this.dragCallback, this);
+    },
 
+    dragCallback(event){
+        
+    }
     // start () {
 
     // },
