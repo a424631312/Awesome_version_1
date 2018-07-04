@@ -486,12 +486,12 @@
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 0.6,
-    "_scaleY": 0.6,
+    "_scaleX": 1,
+    "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": -721.5
+      "y": -666.5
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -780,7 +780,9 @@
     },
     "_enabled": true,
     "enumType": 4,
-    "object": null,
+    "object": {
+      "__id__": 12
+    },
     "objectNumber": 0
   }
 ]

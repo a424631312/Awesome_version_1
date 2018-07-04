@@ -33,8 +33,31 @@ cc.Class({
         this.node.on('touchmove', this.dragCallback, this);
     },
 
-    dragCallback(event){
-        
+    dragCallback(event){ 
+        //event类型为cc.Event,可获取到拖动位置
+        let localLocation = event.getLocation();
+        //把节点坐标转成父节点坐标坐标
+        let globalLocation = this.object.parent.convertToNodeSpaceAR(localLocation);
+        //飞机不移出屏幕 
+        var minX = -this.object.parent.width/2+this.object.width/2;
+        var maxX = -minX;
+        var minY = -this.object.parent.height/2+this.object.height/2;
+        var maxY = -minY;
+        if (globalLocation.x< minX){
+            globalLocation.x = minX;
+        }
+        if (globalLocation.x>maxX){
+            globalLocation.x = maxX;        
+        }
+        if (globalLocation.y< minY){
+            globalLocation.y = minY;
+        }
+        if (globalLocation.y> maxY){
+            globalLocation.y = maxY;
+        }
+        //设置节点在父节点的位置
+        this.object.setPosition(globalLocation);
+    
     }
     // start () {
 
