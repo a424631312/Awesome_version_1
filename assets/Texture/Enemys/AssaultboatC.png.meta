@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "fd972b9d-edc2-4d1a-85c2-fbaf14c80e37",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "AssaultboatC": {
+      "ver": "1.0.3",
+      "uuid": "556ca700-c9bd-4c22-8aaa-8560a88a741d",
+      "rawTextureUuid": "fd972b9d-edc2-4d1a-85c2-fbaf14c80e37",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 43,
+      "height": 34,
+      "rawWidth": 43,
+      "rawHeight": 34,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

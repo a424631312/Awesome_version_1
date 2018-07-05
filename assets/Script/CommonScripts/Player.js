@@ -36,7 +36,7 @@ cc.Class({
     dragCallback(event){ 
         //event类型为cc.Event,可获取到拖动位置
         let localLocation = event.getLocation();
-        //把节点坐标转成父节点坐标坐标
+        //把节点坐标转成父节点坐标
         let globalLocation = this.object.parent.convertToNodeSpaceAR(localLocation);
         //飞机不移出屏幕 
         var minX = -this.object.parent.width/2+this.object.width/2;
