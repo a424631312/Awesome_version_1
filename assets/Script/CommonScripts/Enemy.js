@@ -22,29 +22,24 @@ cc.Class({
 
         object: {
             default: null,
-            type: cc.Prefab,
+            type: cc.Node,
             override: true,
-        }
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        },
+
+        HP: 0, //生命值
+
+        attackSpeed: 0, //攻击速度（频率）
+
+        rebornSpeed: 0, //重生速度
+
+        moveSpeed: 0, //移动速度
     }),
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+
+    },
 
     start () {
 

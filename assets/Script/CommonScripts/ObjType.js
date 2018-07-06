@@ -20,10 +20,10 @@ var ObjType = cc.Enum({
     bullet: 1 << 4,
     bomb: 1 << 5,
     background: 1 << 6,
-    //静态对象
-    // settingButton: 1 << 6,
-    // bombButton: 1 << 7,
-    // scoreLabel: 1 << 8,
+    //阵法
+    gooseTypeArray: 1 << 7, //雁型阵
+    horSingleLineArray: 1 << 8, //一字长蛇阵
+    verSingleLineArray: 1 << 9, //单纵阵
     
 });
 

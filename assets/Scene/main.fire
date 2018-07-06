@@ -641,7 +641,9 @@
     "node": {
       "__id__": 17
     },
-    "_enabled": true
+    "_enabled": true,
+    "enemys": [],
+    "enemysNumber": []
   },
   {
     "__type__": "cc.Node",
@@ -734,7 +736,9 @@
         "__id__": 22
       }
     ],
-    "_prefab": null,
+    "_prefab": {
+      "__id__": 23
+    },
     "_id": "90iFC7jJRCF6gAg03XTGyZ",
     "_opacity": 255,
     "_color": {
@@ -784,5 +788,14 @@
       "__id__": 12
     },
     "objectNumber": 0
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 21
+    },
+    "asset": null,
+    "fileId": "90iFC7jJRCF6gAg03XTGyZ",
+    "sync": false
   }
 ]
