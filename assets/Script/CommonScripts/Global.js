@@ -7,35 +7,55 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
+var objType = require('ObjType');
 
-cc.Class({
+var common = cc.Class({
     extends: cc.Component,
 
     properties:()=>({
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        gameState:{
+            default: objType.gameNotStartYet,
+            type:objType,
+        },
+        delegate:{
+            default: null,
+            type: cc.Class,
+        },
     }),
+
+    //对象池操作
+    //批量初始化对象池
+    MPInitObjectPool: function(objArray){
+        for (let i = 0; i < objArray.length; i++) {
+            let obj = objArray[i];
+            this.initObjetPool(enemy);
+        }
+    },
+
+    //初始化对象池
+    initObjetPool: function(objProperties){
+        
+    },
+
+    //从对象池获取对象
+    getFromObjectPool: function(nodePool, prefab, nodeParent){
+
+    },
+
+    //把对象放回对象池
+    putBackToObjectPool: function(){
+
+    },
 
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},
 
-    start () {
+    // start () {
 
-    },
+    // },
 
     // update (dt) {},
 });
+
+module.exports = common;

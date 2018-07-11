@@ -24,7 +24,11 @@ var ObjType = cc.Enum({
     gooseTypeArray: 1 << 7, //雁型阵
     horSingleLineArray: 1 << 8, //一字长蛇阵
     verSingleLineArray: 1 << 9, //单纵阵
-    
+    //游戏状态
+    gameStart: 1 << 10,
+    gamePause: 1 << 11,
+    gameOver: 1 << 12,
+    gameNotStartYet: 1 << 13,
 });
 
 module.exports = ObjType;
