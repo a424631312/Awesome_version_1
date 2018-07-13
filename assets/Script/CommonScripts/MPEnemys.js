@@ -9,10 +9,15 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
 var formationType = require('ObjType');
+var common = require('Global');
 
 var enemyInArray = cc.Class({
     name: 'enemyInArray',
     properties:()=> ({
+        name: {
+            default: '',
+        },
+
         number: {
             default: 0,
             tooltip: '敌人的数量',
@@ -43,11 +48,21 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        common.MPInitObjectPool(this, this.enemys);
+    },
 
-    start () {
+    bornEnemys: function(){
+        common.getFromObjectPool(this, this.enemys);
+    },
+
+    destoryEnemys: function(){
 
     },
+
+    // start () {
+
+    // },
 
     // update (dt) {},
 });

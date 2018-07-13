@@ -17,34 +17,55 @@ var common = cc.Class({
             default: objType.gameNotStartYet,
             type:objType,
         },
-        delegate:{
-            default: null,
-            type: cc.Class,
-        },
     }),
 
     //对象池操作
     //批量初始化对象池
-    MPInitObjectPool: function(objArray){
-        for (let i = 0; i < objArray.length; i++) {
+    MPInitObjectPool: function(messager, objArray){
+
+        for (let i=0; i<objArray.length; i++) {
             let obj = objArray[i];
-            this.initObjetPool(enemy);
+            this.initObjetPool(messager, obj);
         }
     },
 
-    //初始化对象池
-    initObjetPool: function(objProperties){
-        
+    //单个初始化对象池
+    initObjetPool: function(messager, obj){
+        let objName = obj.name + 'Pool';
+        messager[objName] = new cc.nodePool();
+        let number = obj.number;
+        for (let i=0; i<number; ++i)
+        {
+            let node = cc.instantiate(obj.prefab);
+            messager[objName].put(node);
+        }
     },
 
     //从对象池获取对象
-    getFromObjectPool: function(nodePool, prefab, nodeParent){
+    getFromObjectPool: function(messager, objArray){
+
+        for (let i=0;i<objArray.length;++i)
+        {
+            let node = null;
+            let obj = objArray[i];
+            let poolName = obj.name + 'Pool';
+            let pool = messager[poolName];
+            if (pool.size()>0)
+            {
+                node = pool.get();
+            }
+            else
+            {
+                node = cc.instantiate(obj.prefab);
+            }
+            return node;
+        }
 
     },
 
     //把对象放回对象池
-    putBackToObjectPool: function(){
-
+    putBackToObjectPool: function(messager, objArray){
+        
     },
 
     // LIFE-CYCLE CALLBACKS:
