@@ -9,15 +9,16 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 var objType = require('ObjType');
 
-var common = cc.Class({
-    extends: cc.Component,
+var common = {
+    // extends: cc.Component,
 
-    properties:()=>({
-        gameState:{
-            default: objType.gameNotStartYet,
-            type:objType,
-        },
-    }),
+    // properties:()=>({
+    gameState:{
+        default: objType.gameNotStartYet,
+        type:objType,
+    },
+
+    // }),
 
     //对象池操作
     //批量初始化对象池
@@ -32,7 +33,7 @@ var common = cc.Class({
     //单个初始化对象池
     initObjetPool: function(messager, obj){
         let objName = obj.name + 'Pool';
-        messager[objName] = new cc.nodePool();
+        messager[objName] = new cc.NodePool();
         let number = obj.number;
         for (let i=0; i<number; ++i)
         {
@@ -50,15 +51,20 @@ var common = cc.Class({
             let obj = objArray[i];
             let poolName = obj.name + 'Pool';
             let pool = messager[poolName];
-            if (pool.size()>0)
+            for (let j=0;j<obj.number;++j)
             {
-                node = pool.get();
+                if (pool.size()>0)
+                {
+                    node = pool.get();
+                    node.name = obj.name;
+                    node.arrayType = obj.arrayType;
+                }
+                else
+                {
+                    node = cc.instantiate(obj.prefab);
+                }
+                messager.node.addChild(node);
             }
-            else
-            {
-                node = cc.instantiate(obj.prefab);
-            }
-            return node;
         }
 
     },
@@ -70,13 +76,15 @@ var common = cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    // onLoad () {
+
+    // },
 
     // start () {
 
     // },
 
     // update (dt) {},
-});
+};
 
 module.exports = common;

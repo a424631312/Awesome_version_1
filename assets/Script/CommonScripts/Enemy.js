@@ -20,6 +20,11 @@ cc.Class({
             override: true,
         },
 
+        arrayType: {
+            default: objType.verSingleLineArray,
+            type: objType,
+        },
+
         object: {
             default: null,
             type: cc.Node,
@@ -33,17 +38,23 @@ cc.Class({
         rebornSpeed: 0, //重生速度
 
         moveSpeed: 0, //移动速度
+
+        bornMoment: 0, //出生时间
     }),
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+    init(){
 
     },
+    
+    // onLoad () {
 
-    start () {
+    // },
 
-    },
+    // start () {
+
+    // },
 
     // update (dt) {},
 });

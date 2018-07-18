@@ -19,12 +19,12 @@ var enemyInArray = cc.Class({
         },
 
         number: {
-            default: 0,
+            default: cc.Integer,
             tooltip: '敌人的数量',
         },
 
         arrayType: {
-            default: formationType.horSingleLineArray,
+            default: formationType.verSingleLineArray,
             type: formationType,
             tooltip: '阵型',
         },
@@ -36,7 +36,7 @@ var enemyInArray = cc.Class({
     }),
 });
 
-cc.Class({
+var MPEnemys = cc.Class({
     extends: cc.Component,
 
     properties:()=> ({
@@ -44,17 +44,71 @@ cc.Class({
             default: [],
             type: enemyInArray,
         },
+
+        // emenyBornMoment: [cc.Integer],
+
+        // itemBornMoment: [cc.Integer],
     }),
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        common.MPInitObjectPool(this, this.enemys);
+    init(){
+        common.MPInitObjectPool(this, this.enemys);//初始化对象池并生成node
+        common.getFromObjectPool(this, this.enemys);//从对象池中获取node
     },
 
-    bornEnemys: function(){
-        common.getFromObjectPool(this, this.enemys);
+    // onLoad () {
+        //初始化对象池并生成node
+        // common.MPInitObjectPool(this, this.enemys);
+        
+    // },
+
+    bornEnemys: function(enemyType, position){
+
+        for(let i=0;i<this.node.children.length;++i)
+        {
+            let thisEnemyNode = this.node.children[i];
+            let lastEnemyNode = null;
+            if ((i-1)!=0)
+            {
+                lastEnemyNode = this.node.children[i-1];
+            }
+            this.creatEnemysArray(lastEnemyNode, thisEnemyNode, position);
+
+            // thisEnemyNode.setPosition(cc.v2(1000,1000+i*40));
+            // thisEnemyNode.getComponent('Enemy').init();
+            
+        }
     },
+
+    creatEnemysArray: function(lastEnemy, theEnemy, position){
+        if (lastEnemy && lastEnemy.name === theEnemy.name)
+        {
+            switch(theEnemy.arrayType)
+            {
+                case formationType.gooseTypeArray://雁型阵
+                {
+
+                }
+                break;
+                case formationType.horSingleLineArray://一字长蛇阵
+                {
+
+                }
+                break;
+                case formationType.verSingleLineArray://单纵阵
+                {
+                    theEnemy.setPosition(cc.v2(position.x, lastEnemy.y+40));
+                }
+                break;
+            }
+        }
+        else
+        {
+            theEnemy.setPosition(position);
+        }
+    },
+
 
     destoryEnemys: function(){
 
@@ -66,3 +120,5 @@ cc.Class({
 
     // update (dt) {},
 });
+
+module.exports = MPEnemys;
