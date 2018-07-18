@@ -69,7 +69,7 @@ var MPEnemys = cc.Class({
         {
             let thisEnemyNode = this.node.children[i];
             let lastEnemyNode = null;
-            if ((i-1)!=0)
+            if ((i-1)>=0)
             {
                 lastEnemyNode = this.node.children[i-1];
             }
@@ -88,12 +88,12 @@ var MPEnemys = cc.Class({
             {
                 case formationType.gooseTypeArray://雁型阵
                 {
-
+                    theEnemy.setPosition(cc.v2(position.x, lastEnemy.y+40));
                 }
                 break;
                 case formationType.horSingleLineArray://一字长蛇阵
                 {
-
+                    theEnemy.setPosition(cc.v2(lastEnemy.x+40, position.y));
                 }
                 break;
                 case formationType.verSingleLineArray://单纵阵
