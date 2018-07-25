@@ -20,10 +20,10 @@
         "__id__": 17
       },
       {
-        "__id__": 22
+        "__id__": 26
       },
       {
-        "__id__": 24
+        "__id__": 28
       },
       {
         "__id__": 20
@@ -662,6 +662,9 @@
     "enemys": [
       {
         "__id__": 21
+      },
+      {
+        "__id__": 24
       }
     ]
   },
@@ -719,12 +722,63 @@
   },
   {
     "__type__": "enemyInArray",
-    "name": "enmey_1",
-    "number": "5",
-    "arrayType": 512,
+    "name": "test_1",
     "prefab": {
       "__uuid__": "5d58568f-57da-4a56-a353-c97a5aa85f9e"
-    }
+    },
+    "enemySetting": [
+      {
+        "__id__": 22
+      },
+      {
+        "__id__": 23
+      }
+    ]
+  },
+  {
+    "__type__": "enemySetting",
+    "number": "5",
+    "arrayType": 512,
+    "firstPositon": {
+      "__type__": "cc.Vec2",
+      "x": 1000,
+      "y": 1000
+    },
+    "bornTime": 0
+  },
+  {
+    "__type__": "enemySetting",
+    "number": "7",
+    "arrayType": 256,
+    "firstPositon": {
+      "__type__": "cc.Vec2",
+      "x": 400,
+      "y": 600
+    },
+    "bornTime": 0
+  },
+  {
+    "__type__": "enemyInArray",
+    "name": "test_2",
+    "prefab": {
+      "__uuid__": "775c4547-1fe7-48fa-844e-1a139ab45bc1"
+    },
+    "enemySetting": [
+      {
+        "__id__": 25
+      }
+    ]
+  },
+  {
+    "__type__": "enemySetting",
+    "number": "10",
+    "arrayType": 512,
+    "firstPositon": {
+      "__type__": "cc.Vec2",
+      "x": 600,
+      "y": 800
+    },
+    "bornTime": 0
   },
   {
     "__type__": "cc.Node",
@@ -738,7 +792,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 23
+        "__id__": 27
       }
     ],
     "_prefab": null,
@@ -783,7 +837,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 22
+      "__id__": 26
     },
     "_enabled": true,
     "enumType": 64,
@@ -814,11 +868,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 25
+        "__id__": 29
       }
     ],
     "_prefab": {
-      "__id__": 26
+      "__id__": 30
     },
     "_id": "90iFC7jJRCF6gAg03XTGyZ",
     "_opacity": 255,
@@ -861,7 +915,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 24
+      "__id__": 28
     },
     "_enabled": true,
     "enumType": 4,
@@ -873,7 +927,7 @@
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 24
+      "__id__": 28
     },
     "asset": null,
     "fileId": "90iFC7jJRCF6gAg03XTGyZ",

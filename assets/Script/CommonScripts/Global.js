@@ -21,52 +21,52 @@ var common = {
     // }),
 
     //对象池操作
-    //批量初始化对象池
+    //批量处理对象池元素
     MPInitObjectPool: function(messager, objArray){
 
         for (let i=0; i<objArray.length; i++) {
-            let obj = objArray[i];
+            let obj = objArray[i]; 
             this.initObjetPool(messager, obj);
         }
     },
 
-    //单个初始化对象池
+    //处理对象池单个元素
     initObjetPool: function(messager, obj){
         let objName = obj.name + 'Pool';
         messager[objName] = new cc.NodePool();
-        let number = obj.number;
-        for (let i=0; i<number; ++i)
+        // let number = obj.enemySetting.number;
+        for (let i=0;i<obj.enemySetting.length;++i)
         {
-            let node = cc.instantiate(obj.prefab);
-            messager[objName].put(node);
-        }
-    },
-
-    //从对象池获取对象
-    getFromObjectPool: function(messager, objArray){
-
-        for (let i=0;i<objArray.length;++i)
-        {
-            let node = null;
-            let obj = objArray[i];
-            let poolName = obj.name + 'Pool';
-            let pool = messager[poolName];
-            for (let j=0;j<obj.number;++j)
+            let settingObj = obj.enemySetting[i];
+            for (let j=0; j<settingObj.number; ++j)
             {
-                if (pool.size()>0)
-                {
-                    node = pool.get();
-                    node.name = obj.name;
-                    node.arrayType = obj.arrayType;
-                }
-                else
-                {
-                    node = cc.instantiate(obj.prefab);
-                }
-                messager.node.addChild(node);
+                // if (messager[objName].size() < settingObj.number)
+                // {
+                    let node = cc.instantiate(obj.prefab);
+                    messager[objName].put(node);
+                // }
             }
         }
 
+    },
+
+    //从对象池获取单个对象
+    getFromObjectPool: function(messager, obj){
+
+            let node = null;
+            let poolName = obj.name + 'Pool';
+            let pool = messager[poolName];
+
+                    if (pool.size()>0)
+                    {
+                        node = pool.get();
+                    }
+                    else
+                    {
+                        node = cc.instantiate(obj.prefab);
+                    }
+                    return node;
+                    // messager.node.addChild(node);
     },
 
     //把对象放回对象池

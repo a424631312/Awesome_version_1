@@ -39,7 +39,8 @@ cc.Class({
     },
 
     start () {
-        this.enemyMaker.bornEnemys(null, cc.v2(1000, 1000));
+        this.enemyMaker.bornEnemys(); //初始化后均默认垂直下移
+        // this.enemyMaker.enemyMoves(); //控制移动（移动轨迹）
     },
 
     // update (dt) {},
